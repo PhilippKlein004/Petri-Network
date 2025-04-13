@@ -42,8 +42,10 @@ public class Transition extends PetriNetComponent {
         outgoingEdges.clear();
 
         for ( Edge edge : appWindow.getInstance().getEdges() ) {
-            if (  !edge.isDirectedToNode() && edge.getTransition() == this ) incomingEdges.add( edge );
-            if (   edge.isDirectedToNode() && edge.getTransition() == this ) outgoingEdges.add( edge );
+            if ( edge.getTransition() == this ) {
+                if ( edge.isDirectedToNode() ) outgoingEdges.add( edge );
+                else incomingEdges.add( edge );
+            }
         }
 
     }
@@ -144,9 +146,11 @@ public class Transition extends PetriNetComponent {
         getButton().setText(">");
         getButton().addActionListener(e -> {
 
-            if ( appWindow.windowMode.equals("Run") ) fire();
-            else if ( appWindow.windowMode.equals("Delete") ) delete();
-            else if ( appWindow.windowMode.equals("Connect") ) appWindow.getInstance().addTransitionOfNewEdge(this);
+            switch ( appWindow.windowMode ) {
+                case "Run" -> fire();
+                case "Delete" -> delete();
+                case "Connect" -> appWindow.getInstance().addTransitionOfNewEdge(this);
+            }
 
         });
 

@@ -117,9 +117,11 @@ public class Node extends PetriNetComponent {
 
         button.addActionListener(e -> {
 
-            if ( appWindow.windowMode.equals("Run") ) updateWeight((byte) 1);
-            else if ( appWindow.windowMode.equals("Delete") ) delete();
-            else if ( appWindow.windowMode.equals("Connect") || appWindow.windowMode.equals("Connect N to T") ) appWindow.getInstance().addNodeOfNewEdge(this);
+            switch ( appWindow.windowMode ) {
+                case "Run" -> updateWeight((byte) 1);
+                case "Delete" -> delete();
+                case "Connect", "Connect N to T" -> appWindow.getInstance().addNodeOfNewEdge(this);
+            }
 
         } );
 
