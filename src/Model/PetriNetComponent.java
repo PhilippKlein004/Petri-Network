@@ -22,6 +22,7 @@ public abstract class PetriNetComponent {
 
     public PetriNetComponent(int buttonWidth, int buttonHeight, int buttonXCoordinate, int buttonYCoordinate) {
         this.button = new JButton();
+        this.button.setMargin(new Insets(0, 0, 0, 0));
         this.button.setBounds(buttonXCoordinate, buttonYCoordinate, buttonWidth, buttonHeight);
         this.button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
