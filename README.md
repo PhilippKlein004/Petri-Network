@@ -5,6 +5,10 @@
 <i>Languages: Java<br></i>
 <i>Version: 1.0<br></i>
 
+<br>
+
+[Get Documentation](documents/PetriNetwork.pdf)
+
 <hr>
 
 [General Information](#General-Information)<br>
