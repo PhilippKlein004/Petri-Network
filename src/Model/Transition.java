@@ -120,6 +120,7 @@ public class Transition extends PetriNetComponent {
         }
 
         update();
+        appWindow.getInstance().updateTransitions();
 
     }
 

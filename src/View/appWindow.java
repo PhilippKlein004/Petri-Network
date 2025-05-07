@@ -100,8 +100,6 @@ public class appWindow extends JFrame {
 
     private appWindow() {
 
-        this.setSize(1200, 650);
-
         drawingPanel.setBounds(0, 0, 1200, 605);
         copyright.setBounds(515, 600, 170, 25);
 
@@ -240,7 +238,7 @@ public class appWindow extends JFrame {
         this.setTitle("Petri Network");
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setSize(1200, 650);
+        this.setSize(1220, 660);
         this.setVisible(true);
         this.setLayout(null);
 
@@ -406,6 +404,14 @@ public class appWindow extends JFrame {
 
     public ArrayList<Edge> getEdges() {
         return edges;
+    }
+
+    /**
+     * Updates the Transitions in the window.
+     */
+
+    public void updateTransitions() {
+        for ( Transition transition : transitions ) transition.update();
     }
 
 }
